@@ -1,160 +1,128 @@
+:root {
+  --primary-color: #4caf50;
+  --secondary-color: #45a049;
+  --background-color: #f5f7fa;
+  --text-color: #333;
+  --border-radius: 8px;
+  --box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
 body {
   font-family: 'Roboto', sans-serif;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  height: 100vh;
+  align-items: center;
+  min-height: 100vh;
   margin: 0;
-  background-color: #eceff1;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .container {
   background: #fff;
-  padding: 40px;
-  border-radius: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
   width: 90%;
   max-width: 800px;
-  text-align: center;
-  margin: 20px;
   transition: all 0.3s ease;
 }
 
 .container:hover {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 h1 {
-  margin-bottom: 20px;
-  font-size: 32px;
-  color: #333;
-  font-weight: 700;
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--primary-color);
+}
+
+h1 i {
+  margin-right: 0.5rem;
 }
 
 form {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  border-bottom: 1px solid #eee;
-  padding: 20px;
-  width: 100%;
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2rem;
 }
 
 .form-group {
-  margin-bottom: 20px;
-  width: 100%;
-  text-align: left;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  gap: 1rem;
 }
 
 label {
-  display: block;
-  margin-bottom: 8px;
   font-weight: bold;
-  color: #555;
 }
 
 input {
-  padding: 12px;
+  padding: 0.5rem;
   border: 1px solid #ccc;
-  border-radius: 6px;
-  width: calc(100% - 24px);
-  box-sizing: border-box;
+  border-radius: var(--border-radius);
   transition: border-color 0.3s;
 }
 
 input:focus {
-  border-color: #4caf50;
+  border-color: var(--primary-color);
   outline: none;
 }
 
 button {
-  margin-top: 20px;
-  padding: 15px 30px;
-  background-color: #4caf50;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem;
+  background-color: var(--primary-color);
   color: white;
   border: none;
-  border-radius: 6px;
+  border-radius: var(--border-radius);
   cursor: pointer;
   transition: background-color 0.3s, transform 0.3s;
-  width: 100%;
-  font-size: 16px;
-}
-
-button i {
-  margin-right: 10px;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 button:hover {
-  background-color: #45a049;
-  transform: scale(1.02);
+  background-color: var(--secondary-color);
+  transform: translateY(-2px);
 }
 
 #results {
-  margin-top: 30px;
-  text-align: left;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
-  grid-template-areas:
-    'areaInfo lampPositions'
-    'areaInfo lampDistances'
-    'lampCanvas lampCanvas';
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
-#area-info,
-#lamp-positions,
-#lamp-distances {
+.result-box {
   background-color: #f9f9f9;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
 }
 
-#area-info p,
-#lamp-positions p,
-#lamp-distances p {
-  margin: 5px 0;
-  color: #555;
+#canvas-container {
+  grid-column: 1 / -1;
+  text-align: center;
 }
 
 #lamp-canvas {
-  grid-area: lampCanvas;
-  width: 100%;
-  max-width: 500px;
-  border: 1px solid #ccc;
-  align-self: center;
-}
-
-canvas {
-  margin-top: 20px;
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  border: 1px solid #ddd;
+  border-radius: var(--border-radius);
 }
 
-/* Responsividade */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .container {
-    padding: 15px;
-    max-width: 95%;
+    padding: 1rem;
   }
 
-  h1 {
-    font-size: 24px;
+  .form-group {
+    grid-template-columns: 1fr;
   }
 
   #results {
     grid-template-columns: 1fr;
-    grid-template-areas:
-      'areaInfo'
-      'lampPositions'
-      'lampDistances'
-      'lampCanvas';
-  }
-
-  #lamp-canvas {
-    max-width: 100%;
   }
 }

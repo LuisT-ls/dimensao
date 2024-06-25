@@ -6,20 +6,26 @@
     <title>Calculadora de Posição de Lâmpada</title>
     <link
       rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <div class="container">
-      <h1>Calculadora de Posição de Lâmpada</h1>
+      <h1>
+        <i class="fas fa-lightbulb"></i> Calculadora de Posição de Lâmpada
+      </h1>
       <form id="lamp-form">
         <div class="form-group">
-          <label for="length">Comprimento da Sala (em metros):</label>
+          <label for="length">Comprimento da Sala (m):</label>
           <input type="number" id="length" name="length" step="0.01" required />
         </div>
         <div class="form-group">
-          <label for="width">Largura da Sala (em metros):</label>
+          <label for="width">Largura da Sala (m):</label>
           <input type="number" id="width" name="width" step="0.01" required />
         </div>
         <div class="form-group">
@@ -38,10 +44,12 @@
         </button>
       </form>
       <div id="results">
-        <div id="lamp-positions"></div>
-        <div id="lamp-distances"></div>
-        <div id="area-info"></div>
-        <canvas id="lamp-canvas"></canvas>
+        <div id="area-info" class="result-box"></div>
+        <div id="lamp-positions" class="result-box"></div>
+        <div id="lamp-distances" class="result-box"></div>
+        <div id="canvas-container">
+          <canvas id="lamp-canvas"></canvas>
+        </div>
       </div>
     </div>
     <script src="script.js"></script>
