@@ -81,6 +81,23 @@ document
         drawLamp(ctx, lampX, lampY, index + 1)
       })
     }
+
+    // Calcular e exibir área total
+    const areaTotal = length * width
+    document.getElementById('area-info').innerHTML = `
+    <p>Área total da sala: ${areaTotal.toFixed(2)} m²</p>
+  `
+
+    // Calcular e exibir área iluminada (exemplo simplificado)
+    const areaIluminadaPorLampada = areaTotal / numLamps
+    positions.forEach((pos, index) => {
+      // ... (seu código existente) ...
+      document.getElementById('area-info').innerHTML += `
+      <p>Área iluminada por Lâmpada ${
+        index + 1
+      }: ${areaIluminadaPorLampada.toFixed(2)} m²</p>
+    `
+    })
   })
 
 function drawLamp(ctx, x, y, number) {

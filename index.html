@@ -4,6 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Posição de Lâmpada</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -29,11 +33,14 @@
             required
           />
         </div>
-        <button type="submit">Calcular</button>
+        <button type="submit">
+          <i class="fas fa-calculator"></i> Calcular
+        </button>
       </form>
       <div id="results">
         <div id="lamp-positions"></div>
         <div id="lamp-distances"></div>
+        <div id="area-info"></div>
         <canvas id="lamp-canvas"></canvas>
       </div>
     </div>
