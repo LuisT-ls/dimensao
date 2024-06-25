@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora de Posição de Lâmpada</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://unpkg.com/three@0.126.1/examples/jsm/controls/OrbitControls.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Calculadora de Posição de Lâmpada</h1>
+      <form id="lamp-form">
+        <div class="form-group">
+          <label for="length">Comprimento da Sala (em metros):</label>
+          <input type="number" id="length" name="length" step="0.01" required />
+        </div>
+        <div class="form-group">
+          <label for="width">Largura da Sala (em metros):</label>
+          <input type="number" id="width" name="width" step="0.01" required />
+        </div>
+        <div class="form-group">
+          <label for="num-lamps">Quantidade de Lâmpadas:</label>
+          <input
+            type="number"
+            id="num-lamps"
+            name="num-lamps"
+            step="1"
+            min="1"
+            required
+          />
+        </div>
+        <button type="submit">Calcular</button>
+      </form>
+      <div id="results">
+        <div id="lamp-positions"></div>
+        <div id="lamp-distances"></div>
+        <canvas id="lamp-canvas"></canvas>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
